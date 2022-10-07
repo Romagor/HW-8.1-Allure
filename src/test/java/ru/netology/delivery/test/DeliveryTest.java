@@ -48,7 +48,7 @@ class DeliveryTest {
     }
 
     @Test
-    @DisplayName("Should successful plan and replan meeting")
+    @DisplayName("Plan meeting without replan")
     void shouldSuccessfulPlanWithoutReplanMeeting() {
         var validUser = DataGenerator.Registration.generateUser("ru");
         var daysToAddForFirstMeeting = 4;
@@ -66,8 +66,8 @@ class DeliveryTest {
     }
 
     @Test
-    @DisplayName("Should successful plan and replan meeting")
-    void shouldSuccessfulPlanAndReplanMeetingDayEarlier() {
+    @DisplayName("Planning and replanning a meeting the day before")
+    void shouldSuccessfulPlanAndReplanMeetingDayBefore() {
         var validUser = DataGenerator.Registration.generateUser("ru");
         var daysToAddForFirstMeeting = 4;
         var firstMeetingDate = generateDate(daysToAddForFirstMeeting);
@@ -94,7 +94,7 @@ class DeliveryTest {
     }
 
     @Test
-    @DisplayName("Should successful plan and replan meeting")
+    @DisplayName("Planning and replanning a meeting for the same day")
     void shouldSuccessfulPlanAndReplanMeetingDaySame() {
         var validUser = DataGenerator.Registration.generateUser("ru");
         var daysToAddForFirstMeeting = 4;
@@ -122,7 +122,7 @@ class DeliveryTest {
     }
 
     @Test
-    @DisplayName("Should successful plan and replan meeting")
+    @DisplayName("Unsuccessful replanned day")
     void shouldUnsuccessfulReplanMeetingDay() {
         String planningDate = generateDate(1);
         var validUser = DataGenerator.Registration.generateUser("ru");
@@ -145,10 +145,6 @@ class DeliveryTest {
         $x("//input[@placeholder='Дата встречи']").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $x("//input[@placeholder='Дата встречи']").setValue(planningDate);
         $x("//span[contains(text(),'Перепланировать')]").click();
-
-//        $(".notification__content")
-//                .shouldHave(text("Встреча успешно запланирована на " + planningDate))
-//                .shouldBe(visible);
 
 
        $x(".//span[@data-test-id='date']//child::span[@class='input__sub']").
