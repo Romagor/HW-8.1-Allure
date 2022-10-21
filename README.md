@@ -1,1 +1,0 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/cl6fwj6wd3a0b588?svg=true)](https://ci.appveyor.com/project/Romagor/hw-4-1-card-delivery-replan-date)
